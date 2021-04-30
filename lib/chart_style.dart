@@ -4,7 +4,8 @@ class ChartColors {
   ChartColors._();
 
   //background color
-  static const Color bgColor = Color(0xff090F24);
+  // static const Color bgColor = Color(0xff090F24);
+  static const Color bgColor = Color(0xff000000);
   static const Color kLineColor = Color(0xff33cc66);
   static const Color gridColor = Color(0x14ffffff);
   static const List<Color> kLineShadowColor = [
