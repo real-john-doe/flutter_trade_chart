@@ -22,7 +22,6 @@ class KChartWidget extends StatefulWidget {
   final SecondaryState secondaryState;
   final bool? isLine;
   final Function(bool)? onLoadMore;
-  final Function()? onTapChartChanger;
 
   KChartWidget(
     this.datas, {
@@ -31,7 +30,6 @@ class KChartWidget extends StatefulWidget {
     this.secondaryState = SecondaryState.MACD,
     this.isLine,
     this.onLoadMore,
-    this.onTapChartChanger,
     int fractionDigits = 2,
   }) {
     NumberUtil.fractionDigits = fractionDigits;
@@ -206,33 +204,6 @@ class _KChartWidgetState extends State<KChartWidget>
                 sink: mInfoWindowStream?.sink,
                 opacity: _animation.value,
                 controller: _controller),
-          ),
-          Positioned(
-            top: 24,
-            left: 16,
-            child: InkWell(
-              onTap: () {
-                widget.onTapChartChanger!();
-              },
-              child: Container(
-                color: Color(0xff090F24),
-                height: 24,
-                width: 24,
-                child: Center(
-                  child: widget.isLine!
-                      ? SvgPicture.asset(
-                          'assets/images/barsChart.svg',
-                          width: 14,
-                          height: 22,
-                        )
-                      : SvgPicture.asset(
-                          'assets/images/lineChart.svg',
-                          width: 20,
-                          height: 13,
-                        ),
-                ),
-              ),
-            ),
           ),
           _buildInfoDialog()
         ],
